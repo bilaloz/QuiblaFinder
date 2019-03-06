@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QuiblaFinder</string>
+    <string name="quibla">Kıble</string>
+    <string name="maps">Harita</string>
+    <string name="compass">Pusula</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_map">Map</string>
+</resources>

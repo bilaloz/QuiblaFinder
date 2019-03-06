@@ -1,0 +1,245 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MapsFragment">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </fragment>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:background="@color/white"
+    android:alpha="0.7"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/distanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Kıble'ye Uzaklık :"
+        android:textSize="21dp"
+        android:layout_gravity="top"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/qiblaDegree"
+        android:layout_gravity="bottom"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/distanceText"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:text="Kıble Derecesi:" />
+</RelativeLayout>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:id="@+id/qiblaMarker"
+        android:layout_centerInParent="true"
+        android:src="@drawable/qibla_black"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        />
+    <ImageButton
+        android:layout_width="50dp"
+        android:src="@drawable/find_my_location_btn"
+        android:id="@+id/myLocationBtn"
+        android:layout_above="@id/qiblaMarker"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_height="50dp" />
+
+
+
+    <View
+        android:id="@+id/map_type_default_backgrounds"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:background="@drawable/rounded_rectangle"
+        android:visibility="invisible"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentBottom="true"
+        />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/mapType"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="#FFF"
+        android:layout_marginLeft="20dp"
+        app:fabSize="mini"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        app:rippleColor="#eff5ff"
+        app:srcCompat="@drawable/ic_map_layers" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/map_type_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        android:layout_above="@id/mapType"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:layout_marginLeft="10dp"
+        android:padding="8dp"
+        android:visibility="invisible">
+
+
+        <View
+            android:id="@+id/map_type_default_background"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/rounded_rectangle"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/roadMap"
+            app:layout_constraintEnd_toEndOf="@+id/roadMap"
+            app:layout_constraintStart_toStartOf="@+id/roadMap"
+            app:layout_constraintTop_toTopOf="@+id/roadMap" />
+
+        <ImageButton
+            android:id="@+id/roadMap"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/map_type_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <View
+            android:id="@+id/map_type_satellite_background"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/rounded_rectangle"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/satelliteMap"
+            app:layout_constraintEnd_toEndOf="@+id/satelliteMap"
+            app:layout_constraintStart_toStartOf="@+id/satelliteMap"
+            app:layout_constraintTop_toTopOf="@+id/satelliteMap" />
+
+        <ImageButton
+            android:id="@+id/satelliteMap"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/map_type_2"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@+id/hybridMap"
+            app:layout_constraintStart_toEndOf="@+id/roadMap"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <View
+            android:id="@+id/map_type_terrain_background"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/rounded_rectangle"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/hybridMap"
+            app:layout_constraintEnd_toEndOf="@+id/hybridMap"
+            app:layout_constraintStart_toStartOf="@+id/hybridMap"
+            app:layout_constraintTop_toTopOf="@+id/hybridMap" />
+
+        <ImageButton
+            android:id="@+id/hybridMap"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/map_type_3"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="Map Type"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/map_type_default_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Road Map"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/roadMap"
+            app:layout_constraintStart_toStartOf="@+id/roadMap"
+            app:layout_constraintTop_toBottomOf="@+id/roadMap" />
+
+        <TextView
+            android:id="@+id/map_type_satellite_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Satellite"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/satelliteMap"
+            app:layout_constraintStart_toStartOf="@+id/satelliteMap"
+            app:layout_constraintTop_toBottomOf="@+id/satelliteMap" />
+
+        <TextView
+            android:id="@+id/map_type_terrain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Hybrid)"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/hybridMap"
+            app:layout_constraintStart_toStartOf="@+id/hybridMap"
+            app:layout_constraintTop_toBottomOf="@+id/hybridMap" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/magneticField"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:textSize="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
